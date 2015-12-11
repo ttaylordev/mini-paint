@@ -1,32 +1,77 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  outline: 1px solid red;
+}
 body {
   font-family: 'Press Start 2P', cursive;
-}
+  background-color: #AE90B2;
+  padding: 4px 12px 4px 12px;
 
+}
 a {
   text-decoration: none;
   color: black;
 }
-
 hr {
   color: #fff;
   border: none;
 }
-
 div {
     width: 100%;
     height: 600px;
 }
-
-div div {
+div div div{
     width: 1%;
     height: 2%;
-    outline: 1px solid #fff;
     float: left;
-    background: black;
+    background: #ECFFF8;
 }
+.64container{
+  width:60px;
+  height: 60px;
+  display:none;
+  overflow: hidden;
+  float: left;
+}
+/*
+.128container{
+  width:auto;
+  height: auto;
+  display:none;
+  overflow: hidden;
+}
+.256container{
+  width:auto;
+  height: auto;
+  display:none;
+  overflow: hidden;
+}
+.512container{
+  width:auto;
+  height: auto;
+  display:none;
+  overflow: hidden;
+}
+.origContainer{
+  width:auto;
+  height: auto;
+  display:none;
+  overflow: hidden;
+}
+*/
 
+.pallette-bar {
+  height: 30px;
+  background-color: #AE90B2;
+  float: right;
+}
 .white {
   background: #fff;
+}
+
+.brown {
+  background: brown;
 }
 
 .red {
@@ -44,47 +89,75 @@ div div {
 .yellow {
   background: yellow;
 }
-
+.flesh {
+  background-color: #FFCB87;
+}
 .pallette-white {
   background: white;
   height: 2%;
-  width: 1%;
+  width: 1.8%;
   padding: 10px;
-  border: 1px solid black;
+  position: relative;
+  display: inline-block;
 }
 
 .pallette-black {
   background: black;
   color: white;
   height: 2%;
-  width: 1%;
   padding: 10px;
+}
+.pallette-flesh {
+  background: #FFCB87;
+  color: black;
+  height: 2%;
+  width: 1.8%;
+  padding: 10px;
+  position: relative;
+  display: inline-block;
+}
+.pallette-brown {
+  background: brown;
+  color: white;
+  height: 2%;
+  width: 1.8%;
+  padding: 10px;
+  position: relative;
+  display: inline-block;
 }
 
 .pallette-red {
   background: red;
   height: 2%;
-  width: 1%;
-  padding: 10px
+  width: 1.8%;
+  padding: 10px;
+  position: relative;
+  display: inline-block;
 }
 
 .pallette-green {
   background: green;
   height: 2%;
-  width: 1%;
+  width: 1.8%;
   padding: 10px;
+  position: relative;
+  display: inline-block;
 }
 
 .pallette-yellow {
   background: yellow;
   height: 2%;
-  width: 1%;
+  width: 1.8%;
   padding: 10px;
+  position: relative;
+  display: inline-block;
 }
 
 .pallette-blue {
   background: blue;
   height: 2%;
-  width: 1%;
+  width: 1.8%;
   padding: 10px;
+  position: relative;
+  display: inline-block;
 }
