@@ -11,38 +11,30 @@ body {
 a {
   text-decoration: none;
 }
-hr {
-  color: #fff;
-  border: none;
-  margin: 5px;
-}
+
 .box {
   width: 12px;
   height:12px;
   display: inline-block;
-  float: left;
   background: #ECFFF8;
 }
 .menu-bar {
-  height: 40px;
   width: 100%;
+  padding: 1px 0px;
   background-color: #AE90B2;
   display: inline-block;
 }
 .pallette-bar{
-  height: 40px;
-  width: 500px;
   float: left;
 }
 .button-bar{
-  height: 40px;
   float: right;
   flex: auto;
 }
 .pallette{
-  width: 2%;
-  padding: 10px;
+  padding: 10px 20px;
   position: relative;
+  bottom: -10px;
   display: inline-block;
 }
 .reset {
@@ -56,7 +48,7 @@ hr {
   bottom: 0px;
 }
 .white {
-  background: white;
+  background: #ECFFF8;
 }
 .flesh {
   background: #FFCB87;
@@ -76,7 +68,6 @@ hr {
 .blue {
   background: blue;
 }
-
 #colorPicker  {
   margin: 0px;
   padding: 0px;
@@ -85,10 +76,12 @@ hr {
   top: 5px;
   display: inline-block;
 }
-
 .topButtons {
   padding: 5px;
   position: relative;
   bottom: 0px;
   display: inline-block;
+}
+.containerDiv{
+  box-shadow: 2px 2px 2px #131313;
 }

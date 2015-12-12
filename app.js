@@ -11,6 +11,10 @@ $(document).ready(function() {
   makeCanvas(50);
   var activeColor = '#ECFFF8';
   var mint = '#ECFFF8';
+  $("#colorPicker").on('click',function(e){
+    console.log(e);
+    activeColor = e.target.value;
+  });
   $("#colorPicker").on('change',function(e){
     console.log(e);
     activeColor = e.target.value;
@@ -70,7 +74,6 @@ $(document).ready(function() {
       }
     };
   })();
-
   $('#showGrid').click(function() {
     gridMe();
   });
@@ -82,18 +85,40 @@ $(document).ready(function() {
       $('.containerDiv').append(box);
     }
     $('.containerDiv').css('width', int*12+'px');
-
   }
+
   var containerDivClick = document.querySelector('.containerDiv');
   containerDivClick.addEventListener('click', doSomething, false);
 
+
+  $(window).keypress(function (e) {
+    if (e.keyCode === 0 || e.keyCode === 32) {
+      e.preventDefault();
+      var containerDivMouseOver = document.querySelector('.containerDiv');
+      containerDivMouseOver.addEventListener('mouseover', doAnother, false);
+      console.log('Space pressed');
+    } else {
+      (this).off('mouseover');
+    }
+  });
+//on mouseenter check for button down
+
+function doAnother(e) {
+  if (e.target !== e.currentTarget) {
+      var hoveredItem = e.target;
+        $(e.target).css('background-color', activeColor);
+  }
+  e.stopPropagation();
+}
   function doSomething(e) {
     if (e.target !== e.currentTarget) {
-      var clickedItem = e.target.id;
+      var clickedItem = e.target;
         $(e.target).css('background-color', activeColor);
     }
     e.stopPropagation();
   }
+
+
 
   $("#reset").on('click', function () {
     $('.box').css('background-color', '#ECFFF8');
