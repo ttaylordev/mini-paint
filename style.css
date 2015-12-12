@@ -12,12 +12,6 @@ a {
   text-decoration: none;
 }
 
-.box {
-  width: 12px;
-  height:12px;
-  display: inline-block;
-  background: #ECFFF8;
-}
 .menu-bar {
   width: 100%;
   padding: 1px 0px;
@@ -76,12 +70,63 @@ a {
   top: 5px;
   display: inline-block;
 }
+#bgPicker {
+  margin: 0px;
+  padding: 0px;
+  height: 30px;
+  position: relative;
+  top: 5px;
+  display: inline-block;
+}
 .topButtons {
   padding: 5px;
   position: relative;
   bottom: 0px;
   display: inline-block;
 }
+
+.box {
+  z-index: 1;
+  width: 12px;
+  height:12px;
+  display: inline-block;
+  background: #ECFFF8;
+  opacity: .5;
+}
 .containerDiv{
   box-shadow: 2px 2px 2px #131313;
+  background-image: url("http://img.ffffound.com/static-data/assets/6/51cc46900bf5fe574293d49c4d9939e0ebfc8ee3_m.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 7;
+  background-color: white;
+  opacity: 1;
 }
+#chooseFile {
+  font-weight: lighter;
+  font-size: 10px;
+  font-stretch: condensed;
+}
+#enterURL {
+  font-weight: lighter;
+  font-size: 10px;
+  font-stretch: condensed;
+}
+input {
+    background-color: white;
+    cursor: auto;
+    padding: 1px;
+    border: 2px inset;
+}
+input, button {
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    margin: 0px;
+    font: 13px Arial;

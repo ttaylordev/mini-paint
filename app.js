@@ -4,20 +4,29 @@
 // provide a way to snapshot images and save them, or upload them
 // social media interaction, a way to share it with friends.
 // cover or contain background image
-// custom color thingy--set defaults for those colors
-// original as defaults
-// click to drag
+
 $(document).ready(function() {
   makeCanvas(50);
   var activeColor = '#ECFFF8';
   var mint = '#ECFFF8';
+  var bgColor = '#ECFFF8';
+  var activeOpacity = 0.9;
+  var bgOpacity = 1;
+  
   $("#colorPicker").on('click',function(e){
-    console.log(e);
     activeColor = e.target.value;
   });
   $("#colorPicker").on('change',function(e){
-    console.log(e);
     activeColor = e.target.value;
+  });
+  $("#bgPicker").on('click',function(e){
+    console.log(e);
+    console.log('.containerDiv');
+    ('.containerDiv').css('background-color' , e.containerDiv.value);
+  });
+  $("#bgPicker").on('change',function(e){
+    console.log(e);
+    ('.containerDiv').css('background-color' , e.containerDiv.value);
   });
   $('#red').on('click', function() {
     activeColor = 'red';
@@ -89,39 +98,33 @@ $(document).ready(function() {
 
   var containerDivClick = document.querySelector('.containerDiv');
   containerDivClick.addEventListener('click', doSomething, false);
-
-  var space = false;
   var containerDivMouseOver = document.querySelector('.containerDiv');
 
-  $(function() {
-    $(document).keyup(function(evt) {
-      if (evt.keyCode == 32) {
+ $(function() {
+   var space = false;
+    $(document).mouseup(function(evt) {
         space = false;
-        containerDivMouseOver.removeEventListener('mouseover', doAnother, false);
-        console.log('spacey');
-      }
-    }).keydown(function(evt) {
-      if (evt.keyCode == 32) {
+        containerDivMouseOver.removeEventListener('mouseover', doSomething, false);
+    }).mousedown(function(evt) {
         space = true;
-        console.log('whatthespace?');
-      }
       if(space === true){
-        containerDivMouseOver.addEventListener('mouseover', doAnother, false);
-        console.log('Space pressed');
+        containerDivMouseOver.addEventListener('mouseover', doSomething, false);
       }
     });
   });
+
   function doAnother(e) {
     if (e.target !== e.currentTarget) {
       var hoveredItem = e.target;
-        $(e.target).css('background-color', activeColor);
-      }
-      e.stopPropagation();
+      $(e.target).css('background-color', activeColor);
+    }
+    e.stopPropagation();
   }
   function doSomething(e) {
     if (e.target !== e.currentTarget) {
       var clickedItem = e.target;
-        $(e.target).css('background-color', activeColor);
+      $(e.target).css('background-color', activeColor);
+      $(e.target).css('opacity', '.9');
     }
     e.stopPropagation();
   }

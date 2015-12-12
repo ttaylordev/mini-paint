@@ -8,6 +8,18 @@
 <body>
   <header>
     <div class="menu-bar">
+      <tr height=30>
+        <td id="chooseFile">Choose file: </td><td><input size="50" id="upload" type="file" /></td>
+      </tr>
+      <tr>
+        <td id="enterURL">Or enter URL:</td><td><input type="edit" id="input" /></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><button id="photo" class= "topButtons" type="button" name="photo">Set background</button></td>
+      </tr>
+    </table>
+
       <div class="pallette-bar">
         <a href="#reset"><div id="reset" class="pallette reset">Reset</div></a>
         <a href="#red" id="red" class="red"><span class="pallette red"></span></a>
@@ -20,6 +32,7 @@
       </div>
       <div class="button-bar">
         <input value="#5446ce" id="colorPicker" type="color">
+        <input value="#5446ce" id="bgPicker" type="color">
         <button id="8x8"  class= "topButtons" type="button" name="8x8">8x8</button>
         <button id="12x12"  class= "topButtons" type="button" name="12x12">12x12</button>
         <button id="16x16"  class= "topButtons" type="button" name="16x16">16x16</button>
@@ -28,13 +41,12 @@
         <button id="showGrid"  class= "topButtons" type="button" name="showGrid">ShowGrid</button>
       </div>
     </div>
+    <table>
 
   </header>
     <div class="containerDiv">
     </div>
-    <p>
-      Hold down Space bar for continuous stream of color
-    </p>
+
 <script src="jquery.min.js"></script>
 <script src="app.js"></script>
 </body>
