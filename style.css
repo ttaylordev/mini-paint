@@ -93,12 +93,14 @@ a {
   background: #ECFFF8;
   opacity: .5;
 }
-.containerDiv{
-  box-shadow: 2px 2px 2px #131313;
+.containerDivClassy{
   background-image: url("http://img.ffffound.com/static-data/assets/6/51cc46900bf5fe574293d49c4d9939e0ebfc8ee3_m.jpg");
+}
+.containerDiv{
   background-repeat: no-repeat;
   background-size: contain;
-  z-index: 7;
+  box-shadow: 2px 2px 2px #131313;
+  z-index: 1;
   background-color: white;
   opacity: 1;
 }

@@ -12,7 +12,8 @@ $(document).ready(function() {
   var bgColor = '#ECFFF8';
   var activeOpacity = 0.9;
   var bgOpacity = 1;
-  
+
+
   $("#colorPicker").on('click',function(e){
     activeColor = e.target.value;
   });
@@ -28,6 +29,7 @@ $(document).ready(function() {
     console.log(e);
     ('.containerDiv').css('background-color' , e.containerDiv.value);
   });
+
   $('#red').on('click', function() {
     activeColor = 'red';
   });
@@ -48,6 +50,7 @@ $(document).ready(function() {
   });
   $( "#white" ).click(function() {
     activeColor = '#ECFFF8';
+    activeOpacity = '.5';
   });
 
   $('#8x8').click(function() {
@@ -86,6 +89,51 @@ $(document).ready(function() {
   $('#showGrid').click(function() {
     gridMe();
   });
+
+  var bgMe = (function() {
+    var count = 0;
+    return function(){
+      if (count % 2 === 0) {
+        $('.containerDiv').removeClass('.containerDivClassy');
+
+        count++;
+      } else {
+        $('.containerDiv').addClass('.containerDivClassy');
+
+        count++;
+      }
+    };
+  })();
+  $('#showBg').click(function() {
+    bgMe();
+  });
+
+
+// $('#photo').click(function() {
+//   $(function () {
+//       $("#input").change(function () {
+//         var bgIMG = function imageIsLoaded(e) {
+//         $('.containerDivClassy').css('background-image', 'url(' + e.target.result + ')');
+//
+//       };
+//   });
+// });
+// });
+//
+//   var bgIMG = function imageIsLoaded(e) {
+//       $('.containerDivClassy').css('background-image', 'url(' + e.target.result + ')');
+//
+
+
+
+  // $('#photo').click(function() {
+  //     $('.containerDivClassy').css('background-image' , 'url(' + '#input'.value + ')');
+  //   });
+
+
+
+
+
   function makeCanvas(int) {
     var sqNo = Math.pow(int,2);
     for (i = 0;i<sqNo;i++){
@@ -95,6 +143,7 @@ $(document).ready(function() {
     }
     $('.containerDiv').css('width', int*12+'px');
   }
+
 
   var containerDivClick = document.querySelector('.containerDiv');
   containerDivClick.addEventListener('click', doSomething, false);
@@ -124,14 +173,30 @@ $(document).ready(function() {
     if (e.target !== e.currentTarget) {
       var clickedItem = e.target;
       $(e.target).css('background-color', activeColor);
-      $(e.target).css('opacity', '.9');
+      $(e.target).css('opacity', activeOpacity);
     }
     e.stopPropagation();
   }
 
+  $(function () {
+      $(":file").change(function () {
+          if (this.files && this.files[0]) {
+              var reader = new FileReader();
+              reader.onload = bgIMG;
+              reader.readAsDataURL(this.files[0]);
+          }
+      });
+  });
+  var bgIMG = function imageIsLoaded(e) {
+      $('.containerDivClassy').css('background-image', 'url(' + e.target.result + ')');
+  };
+
+
   $("#reset").on('click', function () {
     $('.box').css('background-color', '#ECFFF8');
+    $('.box').css('opacity', '.5');
   });
+
 });
 
 
