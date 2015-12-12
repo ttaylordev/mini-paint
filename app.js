@@ -90,26 +90,34 @@ $(document).ready(function() {
   var containerDivClick = document.querySelector('.containerDiv');
   containerDivClick.addEventListener('click', doSomething, false);
 
+  var space = false;
+  var containerDivMouseOver = document.querySelector('.containerDiv');
 
-  $(window).keypress(function (e) {
-    if (e.keyCode === 0 || e.keyCode === 32) {
-      e.preventDefault();
-      var containerDivMouseOver = document.querySelector('.containerDiv');
-      containerDivMouseOver.addEventListener('mouseover', doAnother, false);
-      console.log('Space pressed');
-    } else {
-      (this).off('mouseover');
-    }
+  $(function() {
+    $(document).keyup(function(evt) {
+      if (evt.keyCode == 32) {
+        space = false;
+        containerDivMouseOver.removeEventListener('mouseover', doAnother, false);
+        console.log('spacey');
+      }
+    }).keydown(function(evt) {
+      if (evt.keyCode == 32) {
+        space = true;
+        console.log('whatthespace?');
+      }
+      if(space === true){
+        containerDivMouseOver.addEventListener('mouseover', doAnother, false);
+        console.log('Space pressed');
+      }
+    });
   });
-//on mouseenter check for button down
-
-function doAnother(e) {
-  if (e.target !== e.currentTarget) {
+  function doAnother(e) {
+    if (e.target !== e.currentTarget) {
       var hoveredItem = e.target;
         $(e.target).css('background-color', activeColor);
+      }
+      e.stopPropagation();
   }
-  e.stopPropagation();
-}
   function doSomething(e) {
     if (e.target !== e.currentTarget) {
       var clickedItem = e.target;
@@ -118,12 +126,31 @@ function doAnother(e) {
     e.stopPropagation();
   }
 
-
-
   $("#reset").on('click', function () {
     $('.box').css('background-color', '#ECFFF8');
   });
 });
+
+
+
+
+
+
+//       $(window).keydown(function (e) {
+//         if (e.keyCode === 0 || e.keyCode === 32) {
+//           e.preventDefault();
+//   }
+//   if (window.keyup());
+// });
+// $(window).keyup(function (e) {
+//   if (e.keyCode === 0 || e.keyCode === 32) {
+//     e.preventDefault();
+//     var containerDivMouseOver = document.querySelector('.containerDiv');
+//     containerDivMouseOver.off();
+//     console.log('Space released');
+//   }
+    // (this).off('mouseover');
+//});
 
 
 
