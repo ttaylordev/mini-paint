@@ -1,0 +1,25 @@
+{
+  "name": "pixel-paint",
+  "version": "0.0.2",
+  "description": "manipulating the DOM with jquery",
+  "main": "./dist/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ttaylordev/mini-paint.git"
+  },
+  "keywords": [
+    "jquery",
+    "mini",
+    "paint",
+    "pixel"
+  ],
+  "author": "Tyson J Taylor",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ttaylordev/mini-paint/issues"
+  },
+  "homepage": "https://github.com/ttaylordev/mini-paint#readme"
+}
