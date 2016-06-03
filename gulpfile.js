@@ -69,7 +69,7 @@ var AUTOPREFIXER_BROWSERS = [
 gulp.task( 'html', function () {
   gulp.src( './dev/**/*.html' )
     .pipe( noHtmlComments() )
-    .pipe( gulp.dest( './dist/html/' ) )
+    .pipe( gulp.dest( './dist' ) )
     .pipe( browserSync.stream() );
 } );
 
@@ -77,14 +77,14 @@ gulp.task( 'html', function () {
 gulp.task( 'index', function () {
   gulp.src( './dev/index.html' )
     .pipe( noHtmlComments() )
-    .pipe( gulp.dest( './dist/' ) )
+    .pipe( gulp.dest( './dist' ) )
     .pipe( browserSync.stream() );
 } );
 
 
 // process styles files and return one css file.
 gulp.task( 'styles', function () {
-  return gulpSrc( [  './dev/*.css', './dev/*.scss' ], {
+  return gulpSrc( [  './dev/normalize.css', './dev/style.css', './dev/*.scss' ], {
       base: './dev'
     } )
     .pipe( plumber( {
@@ -98,12 +98,12 @@ gulp.task( 'styles', function () {
     } ) )
     .pipe( autoprefixer( AUTOPREFIXER_BROWSERS ) )
     .pipe( concat( 'bundle.css' ) )
-    .pipe( sourcemaps.write( '../maps' ) )
     .pipe( gulp.dest( './dist' ) )
     .pipe( rename( {
       suffix: '.min'
     } ) )
     .pipe( minifyCss() )
+    .pipe( sourcemaps.write( './maps' ) )
     .pipe( gulp.dest( './dist' ) )
 
   .pipe( browserSync.stream() );
@@ -113,7 +113,7 @@ gulp.task( 'styles', function () {
 
 // process JS files and return the stream.
 gulp.task( 'scripts', function () {
-  return gulpSrc( [ './dev/*.js', './dev/**/*.js' ] )
+  return gulpSrc( [ './dev/jquery.min.js', './dev/**/*.js' ] )
     .pipe( plumber( {
       errorHandler: onError
     } ) )
